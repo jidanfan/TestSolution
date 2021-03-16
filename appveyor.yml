@@ -1,0 +1,4 @@
+version: 1.0.{build}
+image: Linux
+build_script:
+- sh: dotnet publish
