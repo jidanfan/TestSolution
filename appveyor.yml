@@ -7,7 +7,7 @@ notifications:
   - provider: Email
     to:
       - '{{commitAuthorEmail}}'
-      - 'xy_feng@qq.com'
+      - xy_feng@qq.com
     subject: 'Build {{status}} ' # optional
     message: '{{template_variable_1}}, {{template_variable_2}}' # optional
     on_build_success: true
