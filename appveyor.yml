@@ -1,11 +1,12 @@
 version: 1.0.{build}
 image: Linux
-nuget:
-  account_feed: true
-  project_feed: true
-# install:
-#   -  nuget sources add -Name jidanfan -Source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w -UserName %nuget_user% -Password %nuget_pwd%
-
+# nuget: 如果包源和CI服务器是相同地址的话可以配置这个
+#   account_feed: true
+#   project_feed: true
+install:
+  - nuget sources add -Name jidanfan -Source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w -UserName %nuget_user% -Password %nuget_pwd%
+before_build:
+  - sh: dotnet restore
 build_script:
   - sh: dotnet publish
 # notifications:
