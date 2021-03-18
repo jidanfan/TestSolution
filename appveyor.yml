@@ -3,13 +3,13 @@ image: Linux
 build_script:
   - sh: dotnet publish
 
-notifications:
-  - provider: Email
-    to:
-      - '{{commitAuthorEmail}}'
-      - xy_feng@qq.com
-    subject: 'Build {{status}} ' # optional
-    message: '{{template_variable_1}}, {{template_variable_2}}' # optional
-    on_build_success: true
-    on_build_failure: false
-    on_build_status_changed: false
+# notifications:
+#   - provider: Email
+#     to:
+#       - '{{commitAuthorEmail}}'
+#       - xy_feng@qq.com
+#     subject: 'Build {{status}} ' # optional
+#     message: '{{template_variable_1}}, {{template_variable_2}}' # optional
+#     on_build_success: true
+#     on_build_failure: false
+#     on_build_status_changed: false
