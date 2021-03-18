@@ -1,8 +1,13 @@
 version: 1.0.{build}
 image: Linux
+nuget:
+  account_feed: true
+  project_feed: true
+# install:
+#   -  nuget sources add -Name jidanfan -Source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w -UserName %nuget_user% -Password %nuget_pwd%
+
 build_script:
   - sh: dotnet publish
-
 # notifications:
 #   - provider: Email
 #     to:
