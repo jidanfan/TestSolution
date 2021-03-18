@@ -6,7 +6,7 @@ image: Linux
 install:
   - dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_pwd% --store-password-in-clear-text
 before_build:
-  - sh: dotnet restore
+  - sh: dotnet restore --configfile NuGet.Config
 build_script:
   - sh: dotnet publish
 # notifications:
