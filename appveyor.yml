@@ -4,10 +4,11 @@ image: Linux
 #   account_feed: true
 #   project_feed: true
 install:
-  - dotnet nuget remove source jidanfan
-  - dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_pwd% --store-password-in-clear-text
+  # - dotnet nuget remove source jidanfan
+  # - dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_pwd% --store-password-in-clear-text
+  - nuget sources add -Name MyAccountFeed -Source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w -UserName %nuget_user% -Password %nuget_pwd%
 before_build:
-  - sh: dotnet restore --configfile NuGet.Config
+  - sh: dotnet restore #--configfile NuGet.Config
 build_script:
   - sh: dotnet publish
 # notifications:
