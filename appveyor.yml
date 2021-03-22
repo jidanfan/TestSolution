@@ -1,4 +1,6 @@
 version: 1.0.{build}
+configuration: Release
+platform: x64
 environment:
   nuget_user: xy_feng@qq.com
   nuget_password: 1
@@ -9,5 +11,6 @@ install:
 
     dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
 build:
+  project: WebApplication1.sln
   verbosity: minimal
 ...
