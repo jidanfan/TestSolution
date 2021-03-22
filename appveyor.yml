@@ -1,6 +1,5 @@
 version: 1.0.{build}
-configuration: Release
-platform: x64
+configuration: Release 
 environment:
   nuget_user: xy_feng@qq.com
   nuget_password: 1
