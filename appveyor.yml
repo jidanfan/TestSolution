@@ -14,3 +14,9 @@ build:
   verbosity: minimal
 test_script:
 - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+deploy:
+  - provider: Environment
+    name: production
+    #on:
+    #  APPVEYOR_REPO_TAG: true
+    ps: docker build -t testimage WebApplication1/Dockerfile
