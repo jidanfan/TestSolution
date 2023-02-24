@@ -1,15 +1,16 @@
 version: 1.0.{build}
 configuration: Release 
-environment:
-  nuget_user: xy_feng@qq.com
-  nuget_password: 1
-install:
-- ps: >-
-    dotnet nuget  remove source jidanfan
+#environment:
+#  nuget_user: xy_feng@qq.com
+#  nuget_password: 1
+#install:
+#- ps: >-
+#    dotnet nuget  remove source jidanfan
 
 
-    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
+#    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
 build:
   project: WebApplication1.sln
   verbosity: minimal
-...
+test_script:
+- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
