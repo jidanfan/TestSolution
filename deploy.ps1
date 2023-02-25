@@ -9,7 +9,7 @@ $ErrorActionPreference = 'Stop';
 
 "APPVEYOR_REPO_TAG_NAME: $env:APPVEYOR_REPO_TAG_NAME"
 
-if ($env:APPVEYOR_REPO_TAG_NAME)
+if ($env:APPVEYOR_REPO_TAG_NAME -eq "true")
 {
    docker ps
  }

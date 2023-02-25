@@ -16,6 +16,11 @@ build:
 test_script:
 - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-deploy_script:
-- ps: ./deploy.ps1
+#deploy_script:
+#- ps: ./deploy.ps1
    
+deploy:
+- provider: Local
+  on:
+    APPVEYOR_REPO_TAG: true
+  ps: ./deploy.ps1
