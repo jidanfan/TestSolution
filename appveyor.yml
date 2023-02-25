@@ -1,7 +1,7 @@
 version: 1.0.{build}
 configuration: Release 
-environment:
-  APPVEYOR_REPO_TAG: true
+#environment:
+  #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
 #install:
