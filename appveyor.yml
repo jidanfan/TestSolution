@@ -15,7 +15,7 @@ build:
 test_script:
 - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 deploy_script:
-  - ./deploy.ps1
+- ps: ./deploy.ps1
 #deploy:
 #  - provider: Environment
 #    name: production
