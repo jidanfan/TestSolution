@@ -25,9 +25,12 @@ artifacts:
 
 deploy:
 - provider: Local
+  artifact: myartifacts
   on:
-    APPVEYOR_REPO_TAG: true  
+    branch: master
+    APPVEYOR_REPO_TAG: true
+  ps: ./deploy.ps1
 
-deploy_script:
-- ps: ./deploy.ps1
+#deploy_script:
+#- ps: ./deploy.ps1
    
