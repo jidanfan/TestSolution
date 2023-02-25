@@ -24,7 +24,7 @@ deploy_script:
     }
     else
     {
-      docker images
+      docker images 
     }
 #deploy:
 #  - provider: Local 
