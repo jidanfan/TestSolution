@@ -24,14 +24,14 @@ test_script:
 #  - path: dist/*.*    
 #    name: myartifacts
 
-deploy:
-- provider: Local
-  #artifact: myartifacts
-  on:
-    branch: master
-    APPVEYOR_REPO_TAG: true
-  ps: ./deploy.ps1
+#deploy:
+#- provider: Local
+#  artifact: myartifacts
+#  on:
+#    branch: master
+#    APPVEYOR_REPO_TAG: true
+#  ps: ./deploy.ps1
 
-#deploy_script:
-#- ps: ./deploy.ps1
+deploy_script:
+- ps: ./deploy.ps1
    
