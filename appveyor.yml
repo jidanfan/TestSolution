@@ -18,11 +18,14 @@ test_script:
 
 deploy_script:
 - ps: >-
-	if (${env:APPVEYOR_REPO_TAG_NAME}) {
+    if (${env:APPVEYOR_REPO_TAG_NAME})
+    {
       docker ps
-	}
-	#./deploy.ps1
-
+    }
+    else
+    {
+      docker images
+    }
 #deploy:
 #  - provider: Local 
 #    on:
