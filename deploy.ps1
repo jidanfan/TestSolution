@@ -1,17 +1,13 @@
 $ErrorActionPreference = 'Stop';
 "Hello world"
 
-"INFO: $APPVEYOR_REPO_TAG"
+"APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
 
 "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME"
 
 "INFO: $APPVEYOR_REPO_TAG_NAME"
 
-echo  "$env:APPVEYOR_REPO_TAG_NAME"
-
-echo  "${env:APPVEYOR_REPO_TAG_NAME}"
-
-"${env:APPVEYOR_REPO_TAG_NAME}"
+"APPVEYOR_REPO_TAG_NAME: $env:APPVEYOR_REPO_TAG_NAME"
 
 if ($env:APPVEYOR_REPO_TAG_NAME)
 {
@@ -20,4 +16,4 @@ if ($env:APPVEYOR_REPO_TAG_NAME)
  else
  {
     docker images 
-    }
+}
