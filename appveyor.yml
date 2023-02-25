@@ -7,6 +7,9 @@ configuration: Release
 #- ps: >-
 #    dotnet nuget  remove source jidanfan
 
+#skip_tags: true
+
+    
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
 build:
@@ -16,11 +19,15 @@ build:
 test_script:
 - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-#deploy_script:
-#- ps: ./deploy.ps1
-   
+artifacts:
+  - path: dist/*.*    
+    name: myartifacts
+
 deploy:
 - provider: Local
   on:
-    APPVEYOR_REPO_TAG: true
-  ps: ./deploy.ps1
+    APPVEYOR_REPO_TAG: true  
+
+deploy_script:
+- ps: ./deploy.ps1
+   
