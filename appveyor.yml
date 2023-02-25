@@ -18,7 +18,7 @@ test_script:
 
 deploy_script:
 - ps: >-
-    if (${env:APPVEYOR_REPO_TAG_NAME})
+    if ($(APPVEYOR_REPO_TAG_NAME))
     {
       docker ps
     }
