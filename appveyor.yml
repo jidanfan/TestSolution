@@ -20,13 +20,13 @@ build:
 test_script:
 - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-artifacts:
-  - path: dist/*.*    
-    name: myartifacts
+#artifacts:
+#  - path: dist/*.*    
+#    name: myartifacts
 
 deploy:
 - provider: Local
-  artifact: myartifacts
+  #artifact: myartifacts
   on:
     branch: master
     APPVEYOR_REPO_TAG: true
