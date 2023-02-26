@@ -4,10 +4,10 @@ configuration: Release
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
-branches:
-  only:
-    - master
-    - develop
+#branches:
+#  only:
+#    - master
+#    - develop
 install:
 - ps: ./deploy.ps1 
 #- ps: >-
@@ -44,6 +44,8 @@ deploy_script:
     "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
 
     "appveyor_repo_tag: $Env:appveyor_repo_tag"
+
+    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
 
     "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME"
 
