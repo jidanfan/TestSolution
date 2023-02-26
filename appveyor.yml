@@ -53,10 +53,11 @@ deploy_script:
 
     #if ($env:APPVEYOR_REPO_TAG -eq "true")
     #{
-    docker build -t webapplication -f webApplication1 .
+    #docker build -t webapplication -f webApplication1 .
     # }
     # else
     # {
     #    docker images 
     #}
+- ps: docker build -t webapplication -f ./webApplication1 .
    
