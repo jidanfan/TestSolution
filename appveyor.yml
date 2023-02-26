@@ -53,7 +53,7 @@ deploy_script:
 
     #if ($env:APPVEYOR_REPO_TAG -eq "true")
     #{
-       docker build -t WebAaaplication -f WebApplication1 .
+       docker build -t webAaaplication -f webApplication1 .
     # }
     # else
     # {
