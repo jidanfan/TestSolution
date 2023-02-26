@@ -51,12 +51,12 @@ deploy_script:
     }
     else
     {
-        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.0"
+        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
     }
 
     "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
 - ps: docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
-- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME
+- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
 - ps: kubectl set image deploy webtest testimg=testimg:{$Env:APPVEYOR_REPO_TAG_NAME}
    
