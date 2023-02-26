@@ -9,7 +9,7 @@ branches:
     - master
     - develop
 install:
-- ps: ./deploy.ps1
+- ps: ./deploy.ps1 
 #- ps: >-
 #    dotnet nuget  remove source jidanfan
 
@@ -43,7 +43,7 @@ deploy_script:
 
     "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
 
-    "APPVEYOR_REPO_TAG: $Env:appveyor_repo_tag"
+    "appveyor_repo_tag: $Env:appveyor_repo_tag"
 
     "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME"
 
