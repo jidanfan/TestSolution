@@ -3,6 +3,8 @@ $ErrorActionPreference = 'Stop';
 
 "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
 
+"APPVEYOR_REPO_TAG: $Env:appveyor_repo_tag"
+
 "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME"
 
 "INFO: $APPVEYOR_REPO_TAG_NAME"

@@ -1,5 +1,4 @@
-version: 1.0.{build}
-image: Visual Studio 2017
+version: 1.0.{build} 
 configuration: Release 
 #environment:
   #APPVEYOR_REPO_TAG: true
@@ -39,5 +38,16 @@ install:
 #  ps: ./deploy.ps1
 
 deploy_script:
-- ps: ./deploy.ps1
+- ps: >-
+    "Hello world"
+
+    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
+
+    "APPVEYOR_REPO_TAG: $Env:appveyor_repo_tag"
+
+    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME"
+
+    "INFO: $APPVEYOR_REPO_TAG_NAME"
+
+    "APPVEYOR_REPO_TAG_NAME: $env:APPVEYOR_REPO_TAG_NAME"
    
