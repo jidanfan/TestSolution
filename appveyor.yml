@@ -8,8 +8,8 @@ configuration: Release
 #  only:
 #    - master
 #    - develop
-install:
-- ps: ./deploy.ps1 
+#install:
+#- ps: ./deploy.ps1 
 #- ps: >-
 #    dotnet nuget  remove source jidanfan
 
@@ -18,12 +18,12 @@ install:
     
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-#build:
-#  project: WebApplication1.sln
-#  verbosity: minimal
+build:
+  project: WebApplication1.sln
+  verbosity: minimal
 
-#test_script:
-#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+test_script:
+- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #artifacts:
 #  - path: dist/*.*    
@@ -38,9 +38,7 @@ install:
 #  ps: ./deploy.ps1
 
 deploy_script:
-- ps: >-
-    "Hello world"
-
+- ps: >- 
     "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
 
     "appveyor_repo_tag: $Env:appveyor_repo_tag"
@@ -52,4 +50,13 @@ deploy_script:
     "INFO: $APPVEYOR_REPO_TAG_NAME"
 
     "APPVEYOR_REPO_TAG_NAME: $env:APPVEYOR_REPO_TAG_NAME"
+
+    #if ($env:APPVEYOR_REPO_TAG -eq "true")
+    #{
+       docker build -t WebAaaplication -f WebApplication1 .
+    # }
+    # else
+    # {
+    #    docker images 
+    #}
    
