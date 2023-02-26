@@ -4,6 +4,10 @@ configuration: Release
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
+branches:
+  only:
+    - master
+    - develop
 install:
 - ps: ./deploy.ps1
 #- ps: >-
