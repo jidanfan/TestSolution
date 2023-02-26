@@ -13,12 +13,12 @@ configuration: Release
     
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-build:
-  project: WebApplication1.sln
-  verbosity: minimal
+#build:
+#  project: WebApplication1.sln
+#  verbosity: minimal
 
-test_script:
-- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+#test_script:
+#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #artifacts:
 #  - path: dist/*.*    
