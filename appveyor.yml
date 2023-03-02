@@ -1,4 +1,6 @@
 version: 1.0.{build} 
+build_cloud: docker
+docker_image: ubuntu:20.04
 configuration: Release 
 #environment:
   #APPVEYOR_REPO_TAG: true
