@@ -1,8 +1,10 @@
 version: 1.0.{build} 
-build_cloud: docker
-docker_image: ubuntu:20.04
+build_cloud: docker 
 configuration: Release 
-#environment:
+environment:
+  matrix:
+  - job_name: test
+    docker_image: ubuntu:20.04
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
@@ -15,50 +17,44 @@ configuration: Release
 #- ps: >-
 #    dotnet nuget  remove source jidanfan
 
-#skip_tags: true
+for:
+-
+  matrix:
+    only:
+      - job_name: test
+  test_script:
+  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-    
+
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-build:
-  project: WebApplication1.sln
-  verbosity: minimal
+#build:
+#  project: WebApplication1.sln
+#  verbosity: minimal
 
-test_script:
-- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+#test_script:
+#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-#artifacts:
-#  - path: dist/*.*    
-#    name: myartifacts
-
-#deploy:
-#- provider: Local
-#  artifact: myartifacts
-#  on:
-#    branch: master
-#    APPVEYOR_REPO_TAG: true
-#  ps: ./deploy.ps1
-
-deploy_script:
-- ps: >- 
-    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
+#deploy_script:
+#- ps: >- 
+#    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
       
-    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
+#    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
 
-    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
+#    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
-    if ($env:APPVEYOR_REPO_TAG -eq "true")
-    {
+#    if ($env:APPVEYOR_REPO_TAG -eq "true")
+#    {
        
-    }
-    else
-    {
-        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
-    }
+#    }
+#    else
+#    {
+#        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
+#    }
 
-    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
+#    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
-- ps: docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
-- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
-- ps: kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
+#- ps: docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
+#- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
+#- ps: kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
    
