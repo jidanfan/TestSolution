@@ -1,10 +1,10 @@
 version: 1.0.{build} 
-build_cloud: docker 
+image: Ubuntu2004
 configuration: Release 
-environment:
-  matrix:
-  - job_name: test
-    docker_image: ubuntu:20.04
+services:
+  - docker
+#environment:
+ 
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
@@ -17,23 +17,23 @@ environment:
 #- ps: >-
 #    dotnet nuget  remove source jidanfan
 
-for:
--
-  matrix:
-    only:
-      - job_name: test
-  test_script:
-  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+#for:
+#-
+#  matrix:
+#    only:
+#      - job_name: test
+#  test_script:
+#  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-#build:
-#  project: WebApplication1.sln
-#  verbosity: minimal
+build:
+  project: WebApplication1.sln
+  verbosity: minimal
 
-#test_script:
-#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+test_script:
+- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #deploy_script:
 #- ps: >- 
