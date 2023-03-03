@@ -2,8 +2,8 @@ version: 1.0.{build}
 build_cloud: Docker
 image: Linux
 configuration: Release 
-# services:
-#   - docker
+services:
+  - docker
 environment:
   docker_pull: always
   #APPVEYOR_REPO_TAG: true
@@ -13,9 +13,9 @@ environment:
 #  only:
 #    - master
 #    - develop
-# install: 
-# - ps: >- 
-    # docker images
+install: 
+- ps: >- 
+    dotnet --info
   #  dotnet nuget  remove source jidanfan
 
 #for:
