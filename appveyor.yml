@@ -14,8 +14,7 @@ environment:
 #    - master
 #    - develop
 install: 
-- ps: >- 
-    dotnet --info
+- cmd: dotnet --info
   #  dotnet nuget  remove source jidanfan
 
 #for:
