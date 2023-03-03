@@ -1,6 +1,6 @@
 version: 1.0.{build} 
 build_cloud: Docker
-image: ubuntu:latest
+image: ubuntu
 configuration: Release 
 services:
   - docker
