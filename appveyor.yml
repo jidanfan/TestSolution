@@ -15,7 +15,7 @@ environment:
 #    - develop
 install: 
 - ps: >- 
-    docker images
+    # docker images
   #  dotnet nuget  remove source jidanfan
 
 #for:
