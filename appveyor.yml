@@ -4,8 +4,8 @@ image: ubuntu2004
 configuration: Release 
 # services:
 #   - docker
-# environment:
-#   docker_pull: always
+environment:
+  docker_pull: always
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
