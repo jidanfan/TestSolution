@@ -13,8 +13,7 @@ services:
 #    - master
 #    - develop
 install: 
-- ps: >-
-    docker ps
+- ps: >- 
     docker images
   #  dotnet nuget  remove source jidanfan
 
