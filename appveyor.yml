@@ -1,6 +1,6 @@
 version: 1.0.{build} 
 build_cloud: Docker
-image: ubuntu2004
+image: Ubuntu
 configuration: Release 
 # services:
 #   - docker
