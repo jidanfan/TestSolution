@@ -1,11 +1,11 @@
 version: 1.0.{build} 
-build_cloud: docker
+build_cloud: Docker
 image: ubuntu
 configuration: Release 
 services:
   - docker
-#environment:
- 
+environment:
+  docker_pull: always
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
