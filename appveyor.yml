@@ -12,10 +12,12 @@ services:
 #  only:
 #    - master
 #    - develop
-#install:
-#- ps: ./deploy.ps1 
-#- ps: >-
-#    dotnet nuget  remove source jidanfan
+install:
+# - ps: ./deploy.ps1 
+- ps: >-
+  docker ps
+  docker images
+  #  dotnet nuget  remove source jidanfan
 
 #for:
 #-
