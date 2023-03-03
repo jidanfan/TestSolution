@@ -2,10 +2,10 @@ version: 1.0.{build}
 build_cloud: Docker
 image: linux
 configuration: Release 
-services:
-  - docker
-environment:
-  docker_pull: always
+# services:
+#   - docker
+# environment:
+#   docker_pull: always
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
@@ -13,8 +13,8 @@ environment:
 #  only:
 #    - master
 #    - develop
-install: 
-- ps: >- 
+# install: 
+# - ps: >- 
     # docker images
   #  dotnet nuget  remove source jidanfan
 
