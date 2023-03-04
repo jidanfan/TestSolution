@@ -8,6 +8,7 @@ configuration: Release
 environment:
   matrix:
   - job_name: dev_job
+    build_cloud: Docker
     APPVEYOR_BUILD_WORKER_IMAGE: Linux
   - job_name: tag_job 
 matrix:
