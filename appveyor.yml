@@ -26,13 +26,13 @@ environment:
 #  test_script:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-build: off
+#build: off
 test: off
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-#build:
-#  project: WebApplication1.sln
-#  verbosity: minimal
+build:
+  project: WebApplication1.sln
+  verbosity: minimal
 
 #test_script:
 #- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
@@ -59,6 +59,6 @@ test: off
 #- ps: docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
 #- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
 #- ps: kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
-   
+ 
 on_finish:
   - ps: docker ps
