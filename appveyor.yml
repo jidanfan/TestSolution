@@ -1,9 +1,12 @@
 version: 1.0.{build} 
 build_cloud: Docker
-image: Linux
+image: Previous Ubuntu2004
 configuration: Release 
 
-#environment:
+services:
+  - docker
+environment:
+  docker_pull: always
   #APPVEYOR_REPO_TAG: true
 #  nuget_user: xy_feng@qq.com
 #  nuget_password: 1
@@ -11,8 +14,8 @@ configuration: Release
 #  only:
 #    - master
 #    - develop
-install: 
-- cmd: dotnet --info
+#install: 
+#- cmd: dotnet --info
   #  dotnet nuget  remove source jidanfan
 
 #for:
@@ -23,7 +26,8 @@ install:
 #  test_script:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-
+build: off
+test: off
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
 #build:
