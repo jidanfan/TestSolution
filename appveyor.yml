@@ -1,23 +1,26 @@
 version: 1.0.{build} 
-build_cloud: Docker
-image: Linux
+#build_cloud: Docker
+#image: Linux
 configuration: Release 
 
 #services:
 #  - docker
-#environment:
+environment:
+  matrix:
+  - job_name: dev_job
+    APPVEYOR_BUILD_WORKER_IMAGE: Linux
+  - job_name: tag_job 
+matrix:
+  fast_finish: true
 #  docker_pull: always
-  #APPVEYOR_REPO_TAG: true
-#  nuget_user: xy_feng@qq.com
-#  nuget_password: 1
+  #APPVEYOR_REPO_TAG: true 
+
 #branches:
 #  only:
 #    - master
 #    - develop
 install: 
-- cmd: dotnet --info
-  #  dotnet nuget  remove source jidanfan
-
+- cmd: dotnet --info 
 #for:
 #-
 #  matrix:
@@ -29,10 +32,25 @@ install:
 #build: off
 test: off
 
+for:
+-
+  matrix:
+    only:
+      - job_name: dev_job
+  build_script:
+  - ps: dotnet --info
+-
+  matrix:
+    only:
+      - job_name: tag_job
+  build_script:
+  - ps: docker ps
+     
+
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-build:
-  project: WebApplication1.sln
-  verbosity: minimal
+#build:
+#  project: WebApplication1.sln
+#  verbosity: minimal
 
 #test_script:
 #- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
