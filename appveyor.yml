@@ -3,8 +3,8 @@ build_cloud: Docker
 image: Linux
 configuration: Release 
 
-services:
-  - docker
+#services:
+#  - docker
 environment:
   docker_pull: always
   #APPVEYOR_REPO_TAG: true
