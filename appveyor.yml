@@ -14,8 +14,8 @@ configuration: Release
 #  only:
 #    - master
 #    - develop
-#install: 
-#- cmd: dotnet --info
+install: 
+- cmd: dotnet --info
   #  dotnet nuget  remove source jidanfan
 
 #for:
@@ -60,5 +60,5 @@ build:
 #- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
 #- ps: kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
  
-on_finish:
-  - ps: docker ps
+#on_finish:
+#  - ps: docker ps
