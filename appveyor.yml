@@ -8,7 +8,7 @@ configuration: Release
 environment:
   matrix:
   - job_name: dev_job
-    build_cloud: Docker
+    
     APPVEYOR_BUILD_WORKER_IMAGE: Linux
   - job_name: tag_job 
 matrix:
@@ -20,8 +20,8 @@ matrix:
 #  only:
 #    - master
 #    - develop
-install: 
-- cmd: dotnet --info 
+#install: 
+#- cmd: dotnet --info 
 #for:
 #-
 #  matrix:
@@ -38,6 +38,8 @@ for:
   matrix:
     only:
       - job_name: dev_job
+  build_cloud: Docker
+  mage: Linux
   build_script:
   - ps: dotnet --info
 -
