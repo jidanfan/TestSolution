@@ -21,8 +21,8 @@ matrix:
 #  only:
 #    - master
 #    - develop
-install: 
-- ps: "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $env.APPVEYOR_BUILD_WORKER_IMAGE " 
+#install: 
+
 #for:
 #-
 #  matrix:
@@ -32,6 +32,8 @@ install:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #build: off
+build_script:
+ - ps: "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $env.APPVEYOR_BUILD_WORKER_IMAGE " 
 test: off
 
 #for:
