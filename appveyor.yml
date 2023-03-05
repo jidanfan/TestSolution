@@ -36,6 +36,8 @@ build_script:
 - ps: >- 
     "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $Env:APPVEYOR_BUILD_WORKER_IMAGE"
 
+    "INFO: cloud_type: $env:cloud_type"
+    
     "INFO: APPVEYOR: $Env:APPVEYOR"
 
     "INFO: CI: $Env:CI"
