@@ -6,7 +6,7 @@ build_cloud:
 configuration: Release 
 
 #services:
-#  - docker
+#  - docker   
 #environment:
 #  matrix:
 #  - job_name: dev_job 
