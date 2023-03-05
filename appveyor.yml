@@ -1,7 +1,7 @@
 version: 1.0.{build} 
 build_cloud:
-- Docker
-#- Process
+#- Docker
+- Process
 #image: Linux
 configuration: Release 
 
