@@ -7,13 +7,11 @@ configuration: Release
 
 #services:
 #  - docker
-environment:
-  matrix:
-  - job_name: dev_job
-    build_cloud: Docker
-    image: Linux
-    APPVEYOR_BUILD_WORKER_IMAGE: Linux
-  - job_name: tag_job 
+#environment:
+#  matrix:
+#  - job_name: dev_job 
+#    APPVEYOR_BUILD_WORKER_IMAGE: Linux
+#  - job_name: tag_job 
 matrix:
   fast_finish: true
 #  docker_pull: always
@@ -23,8 +21,8 @@ matrix:
 #  only:
 #    - master
 #    - develop
-#install: 
-#- cmd: dotnet --info 
+install: 
+- ps: "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $env.APPVEYOR_BUILD_WORKER_IMAGE " 
 #for:
 #-
 #  matrix:
@@ -36,21 +34,19 @@ matrix:
 #build: off
 test: off
 
-for:
--
-  matrix:
-    only:
-      - job_name: dev_job
-  build_cloud: Docker
-  image: Linux
-  build_script:
-  - ps: dotnet --info
--
-  matrix:
-    only:
-      - job_name: tag_job
-  build_script:
-  - ps: docker ps
+#for:
+#-
+#  matrix:
+#    only:
+#      - job_name: dev_job 
+#  build_script:
+#  - ps: dotnet --info
+#-
+#  matrix:
+#    only:
+#      - job_name: tag_job
+#  build_script:
+#  - ps: docker ps
      
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
