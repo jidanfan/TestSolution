@@ -16,6 +16,7 @@ namespace WebApplication1.Pages
 
         public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration)
         {
+            // hello world
             _logger = logger;
             _configuration = configuration;
             Env = configuration.GetSection("devstring").Value;
