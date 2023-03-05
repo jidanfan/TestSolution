@@ -1,7 +1,7 @@
 version: 1.0.{build} 
 build_cloud:
 - Docker
-- Process
+#- Process
 #image: Linux
 configuration: Release 
 
@@ -17,10 +17,9 @@ matrix:
 #  docker_pull: always
   #APPVEYOR_REPO_TAG: true 
 
-#branches:
-#  only:
-#    - master
-#    - develop
+branches:
+  only:    
+    - dev
 #install: 
 
 #for:
