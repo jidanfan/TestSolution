@@ -33,7 +33,9 @@ matrix:
 
 #build: off
 build_script:
- - ps: "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $env.APPVEYOR_BUILD_WORKER_IMAGE " 
+- ps: >- 
+    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $env.APPVEYOR_BUILD_WORKER_IMAGE "
+     
 test: off
 
 #for:
