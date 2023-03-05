@@ -29,50 +29,15 @@ branches:
 #      - job_name: test
 #  test_script:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
-
-#build: off
-build_script:
-- ps: >- 
-    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $Env:APPVEYOR_BUILD_WORKER_IMAGE"
-
-    "INFO: cloud_type: $Env:CLOUD_TYPE"
-
-    "INFO: build_cloud: $Env:BUILD_COULD"
-    
-    "INFO: APPVEYOR: $Env:APPVEYOR"
-
-    "INFO: CI: $Env:CI"
-
-    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
-      
-    "APPVEYOR_REPO_BRANCH: $Env:APPVEYOR_REPO_BRANCH "
-
-    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
-     
-test: off
-
-#for:
-#-
-#  matrix:
-#    only:
-#      - job_name: dev_job 
-#  build_script:
-#  - ps: dotnet --info
-#-
-#  matrix:
-#    only:
-#      - job_name: tag_job
-#  build_script:
-#  - ps: docker ps
-     
+ 
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-#build:
-#  project: WebApplication1.sln
-#  verbosity: minimal
+build:
+  project: WebApplication1.sln
+  verbosity: minimal
 
-#test_script:
-#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+test_script:
+- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #deploy_script:
 #- ps: >- 
