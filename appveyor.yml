@@ -5,8 +5,8 @@ build_cloud:
 image: Linux
 configuration: Release 
 
-services:
- - docker   
+#services:
+# - docker   
 #environment:
 #  matrix:
 #  - job_name: dev_job 
