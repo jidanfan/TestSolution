@@ -10,7 +10,7 @@ configuration: Release
 #environment:
 #  matrix:
 #  - job_name: dev_job 
-#    APPVEYOR_BUILD_WORKER_IMAGE: Linux
+#    APPVEYOR_BUILD_WORKER_IMAGE: net6.0
 #  - job_name: tag_job 
 matrix:
   fast_finish: true
