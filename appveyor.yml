@@ -2,7 +2,7 @@ version: 1.0.{build}
 build_cloud:
 - Docker
 #- Process
-image: net6.0
+image: Linux
 configuration: Release 
 
 #services:
