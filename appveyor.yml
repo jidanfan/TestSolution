@@ -37,7 +37,7 @@ build:
   verbosity: minimal
 
 test_script:
-- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+- sh: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #deploy_script:
 #- ps: >- 
