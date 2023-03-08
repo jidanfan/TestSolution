@@ -87,7 +87,7 @@ deploy_script:
        k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
        kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
     }
-    else if((docker images -q testimg:1.0 | wc -l ) -eq 0)
+    elseif((docker images -q testimg:1.0 | wc -l ) -eq 0)
     {
         docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
     }
