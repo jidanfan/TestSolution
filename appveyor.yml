@@ -75,7 +75,7 @@ test: off
 #- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 deploy_script:
-- ps: >- 
+- sh: >- 
    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
       
    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
