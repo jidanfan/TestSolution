@@ -30,28 +30,28 @@ branches:
 #  test_script:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-#build: off
-build_script:
-- ps: >- 
-    echo "INFO: APPVEYOR_BUILD_WORKER_IMAGE: ${Env:APPVEYOR_BUILD_WORKER_IMAGE}"
+build: off
+#build_script:
+#- ps: >- 
+#    echo "INFO: APPVEYOR_BUILD_WORKER_IMAGE: ${Env:APPVEYOR_BUILD_WORKER_IMAGE}"
 
-    echo "INFO: cloud_type: ${Env:CLOUD_TYPE}"
+#    echo "INFO: cloud_type: ${Env:CLOUD_TYPE}"
 
-    echo "INFO: build_cloud: ${Env:BUILD_COULD}"
+#    echo "INFO: build_cloud: ${Env:BUILD_COULD}"
     
-    echo "INFO: APPVEYOR: ${Env:APPVEYOR}"
+#    echo "INFO: APPVEYOR: ${Env:APPVEYOR}"
 
-    echo "INFO: CI: ${Env:CI}"
+#    echo "INFO: CI: ${Env:CI}"
 
-    echo "APPVEYOR_REPO_TAG: ${Env:APPVEYOR_REPO_TAG}"
+#    echo "APPVEYOR_REPO_TAG: ${Env:APPVEYOR_REPO_TAG}"
       
-    echo "APPVEYOR_REPO_BRANCH: ${Env:APPVEYOR_REPO_BRANCH} "
+#    echo "APPVEYOR_REPO_BRANCH: ${Env:APPVEYOR_REPO_BRANCH} "
 
-    echo "INFO: tag name: ${Env:APPVEYOR_REPO_TAG_NAME}" 
+#    echo "INFO: tag name: ${Env:APPVEYOR_REPO_TAG_NAME}" 
 
-    if((docker images -q appveyor:1.0 | wc -l ) -eq 2){
-      docker ps
-    }
+#    if((docker images -q appveyor:1.0 | wc -l ) -eq 2){
+#      docker ps
+#    }
       
 test: off
 
@@ -78,28 +78,20 @@ test: off
 #test_script:
 #- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-# deploy_script:
-# - sh: >- 
-#    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
-      
-#    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
-
-#    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
-
-#    if ($env:APPVEYOR_REPO_TAG -eq "true")
-#    {
-       
-#    }
-#    else
-#    {
-#        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
-#    }
-
-#    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
-
-#- ps: docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
-#- ps: k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
-#- ps: kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
+deploy_script:
+- ps: >- 
+ 
+    if ($env:APPVEYOR_REPO_TAG -eq "true")
+    {
+       docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
+       k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
+       kubectl set image deployment/webtest webtest=testimg:$Env:APPVEYOR_REPO_TAG_NAME 
+    }
+    else if((docker images -q testimg:1.0 | wc -l ) -eq 0)
+    {
+        docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
+    }
+     
  
 #on_finish:
 #  - ps: docker ps
