@@ -74,22 +74,22 @@ test: off
 #test_script:
 #- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-#deploy_script:
-#- ps: >- 
-#    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
+deploy_script:
+- ps: >- 
+   "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
       
-#    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
+   "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
 
-#    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
+   "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
-#    if ($env:APPVEYOR_REPO_TAG -eq "true")
-#    {
+   if ($env:APPVEYOR_REPO_TAG -eq "true")
+   {
        
-#    }
-#    else
-#    {
-#        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
-#    }
+   }
+   else
+   {
+       $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
+   }
 
 #    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
