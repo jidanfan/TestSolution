@@ -89,13 +89,13 @@ deploy_script:
     $imgName = "testimg"
     if (${Env:APPVEYOR_REPO_TAG} -eq $true)
     {
-       docker build -t $imgName:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
-       k3d image import $imgName:$Env:APPVEYOR_REPO_TAG_NAME -c main
-       kubectl set image deployment/webtest webtest=$imgName:$Env:APPVEYOR_REPO_TAG_NAME 
+       docker build -t ${imgName}:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
+       k3d image import ${imgName}:$Env:APPVEYOR_REPO_TAG_NAME -c main
+       kubectl set image deployment/webtest webtest=${imgName}:$Env:APPVEYOR_REPO_TAG_NAME 
     }
-    elseif((docker images -q $imgName:1.0 | wc -l ) -eq 0)
+    elseif((docker images -q ${imgName}:1.0 | wc -l ) -eq 0)
     {
-        docker build -t $imgName:1.0 -f ./WebApplication1/Dockerfile .
+        docker build -t ${imgName}:1.0 -f ./WebApplication1/Dockerfile .
     }
      
  
