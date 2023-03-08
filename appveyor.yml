@@ -81,7 +81,7 @@ test: off
 deploy_script:
 - ps: >- 
  
-    if ($env:APPVEYOR_REPO_TAG -eq "true")
+    if (${Env:APPVEYOR_REPO_TAG} -eq $true)
     {
        docker build -t testimg:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
        k3d image import testimg:$Env:APPVEYOR_REPO_TAG_NAME -c main
