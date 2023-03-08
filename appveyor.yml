@@ -32,22 +32,22 @@ branches:
 
 #build: off
 build_script:
-- ps: >- 
-    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: $Env:APPVEYOR_BUILD_WORKER_IMAGE"
+- sh: >- 
+    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: {Env:APPVEYOR_BUILD_WORKER_IMAGE}"
 
-    "INFO: cloud_type: $Env:CLOUD_TYPE"
+    "INFO: cloud_type: {Env:CLOUD_TYPE}"
 
-    "INFO: build_cloud: $Env:BUILD_COULD"
+    "INFO: build_cloud: {Env:BUILD_COULD}"
     
-    "INFO: APPVEYOR: $Env:APPVEYOR"
+    "INFO: APPVEYOR: {Env:APPVEYOR}"
 
-    "INFO: CI: $Env:CI"
+    "INFO: CI: {Env:CI}"
 
-    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
+    "APPVEYOR_REPO_TAG: {Env:APPVEYOR_REPO_TAG}"
       
-    "APPVEYOR_REPO_BRANCH: $Env:APPVEYOR_REPO_BRANCH "
+    "APPVEYOR_REPO_BRANCH: {Env:APPVEYOR_REPO_BRANCH} "
 
-    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
+    "INFO: tag name: {Env:APPVEYOR_REPO_TAG_NAME}" 
      
 test: off
 
@@ -74,22 +74,22 @@ test: off
 #test_script:
 #- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-deploy_script:
-- sh: >- 
-   "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
+# deploy_script:
+# - sh: >- 
+#    "APPVEYOR_REPO_TAG: $Env:APPVEYOR_REPO_TAG"
       
-   "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
+#    "APPVEYOR_REPO_BRANCH: $env:APPVEYOR_REPO_BRANCH "
 
-   "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
+#    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
-   if ($env:APPVEYOR_REPO_TAG -eq "true")
-   {
+#    if ($env:APPVEYOR_REPO_TAG -eq "true")
+#    {
        
-   }
-   else
-   {
-       $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
-   }
+#    }
+#    else
+#    {
+#        $Env:APPVEYOR_REPO_TAG_NAME = "v1.0.1"
+#    }
 
 #    "INFO: tag name: $Env:APPVEYOR_REPO_TAG_NAME" 
 
