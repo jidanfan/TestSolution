@@ -33,21 +33,21 @@ branches:
 #build: off
 build_script:
 - sh: >- 
-    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: {APPVEYOR_BUILD_WORKER_IMAGE}"
+    echo "INFO: APPVEYOR_BUILD_WORKER_IMAGE: {APPVEYOR_BUILD_WORKER_IMAGE}"
 
-    "INFO: cloud_type: {CLOUD_TYPE}"
+    echo "INFO: cloud_type: {CLOUD_TYPE}"
 
-    "INFO: build_cloud: {BUILD_COULD}"
+    echo "INFO: build_cloud: {BUILD_COULD}"
     
-    "INFO: APPVEYOR: {APPVEYOR}"
+    echo "INFO: APPVEYOR: {APPVEYOR}"
 
-    "INFO: CI: {CI}"
+    echo "INFO: CI: {CI}"
 
-    "APPVEYOR_REPO_TAG: {APPVEYOR_REPO_TAG}"
+    echo "APPVEYOR_REPO_TAG: {APPVEYOR_REPO_TAG}"
       
-    "APPVEYOR_REPO_BRANCH: {APPVEYOR_REPO_BRANCH} "
+    echo "APPVEYOR_REPO_BRANCH: {APPVEYOR_REPO_BRANCH} "
 
-    "INFO: tag name: {APPVEYOR_REPO_TAG_NAME}" 
+    echo "INFO: tag name: {APPVEYOR_REPO_TAG_NAME}" 
      
 test: off
 
