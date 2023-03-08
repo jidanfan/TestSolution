@@ -32,22 +32,22 @@ branches:
 
 #build: off
 build_script:
-- cmd: >- 
-    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: %Env:APPVEYOR_BUILD_WORKER_IMAGE%"
+- sh: >- 
+    "INFO: APPVEYOR_BUILD_WORKER_IMAGE: {APPVEYOR_BUILD_WORKER_IMAGE}"
 
-    "INFO: cloud_type: %Env:CLOUD_TYPE%"
+    "INFO: cloud_type: {CLOUD_TYPE}"
 
-    "INFO: build_cloud: %Env:BUILD_COULD%"
+    "INFO: build_cloud: {BUILD_COULD}"
     
-    "INFO: APPVEYOR: %Env:APPVEYOR%"
+    "INFO: APPVEYOR: {APPVEYOR}"
 
-    "INFO: CI: %Env:CI%"
+    "INFO: CI: {CI}"
 
-    "APPVEYOR_REPO_TAG: %Env:APPVEYOR_REPO_TAG%"
+    "APPVEYOR_REPO_TAG: {APPVEYOR_REPO_TAG}"
       
-    "APPVEYOR_REPO_BRANCH: %Env:APPVEYOR_REPO_BRANCH% "
+    "APPVEYOR_REPO_BRANCH: {APPVEYOR_REPO_BRANCH} "
 
-    "INFO: tag name: %Env:APPVEYOR_REPO_TAG_NAME%" 
+    "INFO: tag name: {APPVEYOR_REPO_TAG_NAME}" 
      
 test: off
 
