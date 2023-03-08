@@ -32,7 +32,7 @@ branches:
 
 #build: off
 build_script:
-- sh: >- 
+- cmd: >- 
     "INFO: APPVEYOR_BUILD_WORKER_IMAGE: %Env:APPVEYOR_BUILD_WORKER_IMAGE%"
 
     "INFO: cloud_type: %Env:CLOUD_TYPE%"
