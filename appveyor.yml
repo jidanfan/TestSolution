@@ -87,6 +87,7 @@ test: off
 deploy_script:
 - ps: >- 
     $imgName="testimg"
+
     if (${Env:APPVEYOR_REPO_TAG} -eq $true)
     {
        docker build -t ${imgName}:$Env:APPVEYOR_REPO_TAG_NAME -f ./WebApplication1/Dockerfile .
