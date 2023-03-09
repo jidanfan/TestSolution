@@ -2,7 +2,7 @@ version: 1.0.{build}
 build_cloud:
 - Docker
 #- Process
-image: net6.0
+image: Linux
 configuration: Release 
 
 #services:
@@ -20,7 +20,10 @@ matrix:
 branches:
   only:    
     - dev
-#install: 
+install: 
+- ps >-:
+    docker version
+  
 
 #for:
 #-
@@ -32,12 +35,14 @@ branches:
  
 
 #    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
-build:
-  project: WebApplication1.sln
-  verbosity: minimal
+build: off
+test: off
+# build:
+#   project: WebApplication1.sln
+#   verbosity: minimal
 
-test_script:
-- sh: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+# test_script:
+# - sh: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #deploy_script:
 #- ps: >- 
