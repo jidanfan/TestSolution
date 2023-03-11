@@ -74,9 +74,7 @@ test: off
 #      - job_name: tag_job
 #  build_script:
 #  - ps: docker ps
-     
 
-#    dotnet nuget add source https://ci.appveyor.com/nuget/jidanfan-6k0dhkdnjc2w   -n jidanfan -u %nuget_user% -p %nuget_password% --store-password-in-clear-text
 #build:
 #  project: WebApplication1.sln
 #  verbosity: minimal
