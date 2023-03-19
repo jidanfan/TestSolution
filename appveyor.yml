@@ -2,7 +2,7 @@ version: 1.0.{build}
 build_cloud:
 - Docker
 # - Process
-image: Linux
+image: net6.0
 configuration: Release 
 
 #services:
@@ -17,9 +17,9 @@ matrix:
 #  docker_pull: always
   #APPVEYOR_REPO_TAG: true  
 
-branches:
-  only:    
-    - master
+#branches:
+#  only:    
+#    - master
 #install: 
 
 #for:
@@ -30,7 +30,7 @@ branches:
 #  test_script:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-build: off
+#build: off
 #build_script:
 #- ps: >- 
 #    echo "INFO: APPVEYOR_BUILD_WORKER_IMAGE: ${Env:APPVEYOR_BUILD_WORKER_IMAGE}"
@@ -59,7 +59,7 @@ build: off
     #  docker ps
     #}
       
-test: off
+#test: off
 
 #for:
 #-
@@ -75,16 +75,16 @@ test: off
 #  build_script:
 #  - ps: docker ps
 
-#build:
-#  project: WebApplication1.sln
-#  verbosity: minimal
+build:
+  project: WebApplication1.sln
+  verbosity: minimal
 
-#test_script:
-#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+test_script:
+- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
-deploy_script:
-- ps: >- 
-    docker version
+#deploy_script:
+#- ps: >- 
+#    docker version
     # $imgName="testimg"
 
     # if (${Env:APPVEYOR_REPO_TAG} -eq $true)
