@@ -49,6 +49,16 @@ build_script:
 
     echo "INFO: tag name: ${Env:APPVEYOR_REPO_TAG_NAME}" 
 
+    echo "INFO: APPVEYOR_JOB_NAME: ${Env:APPVEYOR_JOB_NAME}" 
+
+    echo "INFO: APPVEYOR_SCHEDULED_BUILD: ${Env:APPVEYOR_SCHEDULED_BUILD}" 
+
+    echo "INFO: PLATFORM: ${Env:PLATFORM}" 
+
+     
+
+      
+
 #    if (${Env:APPVEYOR_REPO_TAG} -eq $false) {
 #        docker ps
 #    }
