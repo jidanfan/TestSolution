@@ -1,7 +1,7 @@
 version: 1.0.{build} 
 build_cloud:
 - Docker
-# - Process
+- Process
 image: net6.0
 configuration: Release 
 
@@ -11,7 +11,7 @@ configuration: Release
 #  matrix:
 #  - job_name: dev_job 
 #    APPVEYOR_BUILD_WORKER_IMAGE: net6.0
-#  - job_name: tag_job 
+#  - job_name: main_job 
 matrix:
   fast_finish: true
 #  docker_pull: always
@@ -31,23 +31,23 @@ matrix:
 #  - ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #build: off
-#build_script:
-#- ps: >- 
-#    echo "INFO: APPVEYOR_BUILD_WORKER_IMAGE: ${Env:APPVEYOR_BUILD_WORKER_IMAGE}"
+build_script:
+- ps: >- 
+    echo "INFO: APPVEYOR_BUILD_WORKER_IMAGE: ${Env:APPVEYOR_BUILD_WORKER_IMAGE}"
 
-#    echo "INFO: cloud_type: ${Env:CLOUD_TYPE}"
+    echo "INFO: cloud_type: ${Env:CLOUD_TYPE}"
 
-#    echo "INFO: build_cloud: ${Env:BUILD_COULD}"
+    echo "INFO: build_cloud: ${Env:BUILD_COULD}"
     
-#    echo "INFO: APPVEYOR: ${Env:APPVEYOR}"
+    echo "INFO: APPVEYOR: ${Env:APPVEYOR}"
 
-#    echo "INFO: CI: ${Env:CI}"
+    echo "INFO: CI: ${Env:CI}"
 
-#    echo "APPVEYOR_REPO_TAG: ${Env:APPVEYOR_REPO_TAG}"
+    echo "APPVEYOR_REPO_TAG: ${Env:APPVEYOR_REPO_TAG}"
       
-#    echo "APPVEYOR_REPO_BRANCH: ${Env:APPVEYOR_REPO_BRANCH} "
+    echo "APPVEYOR_REPO_BRANCH: ${Env:APPVEYOR_REPO_BRANCH} "
 
-#    echo "INFO: tag name: ${Env:APPVEYOR_REPO_TAG_NAME}" 
+    echo "INFO: tag name: ${Env:APPVEYOR_REPO_TAG_NAME}" 
 
 #    if (${Env:APPVEYOR_REPO_TAG} -eq $false) {
 #        docker ps
@@ -75,12 +75,12 @@ matrix:
 #  build_script:
 #  - ps: docker ps
 
-build:
-  project: WebApplication1.sln
-  verbosity: minimal
+#build:
+#  project: WebApplication1.sln
+#  verbosity: minimal
 
-test_script:
-- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
+#test_script:
+#- ps: dotnet test "XUnitTestProject1/XUnitTestProject1.csproj" --configuration Release--no-build
 
 #deploy_script:
 #- ps: >- 
