@@ -54,6 +54,9 @@ build_script:
     echo "INFO: APPVEYOR_SCHEDULED_BUILD: ${Env:APPVEYOR_SCHEDULED_BUILD}" 
 
     echo "INFO: PLATFORM: ${Env:PLATFORM}" 
+    
+    echo "INFO: APPVEYOR_REPO_PROVIDER: ${Env:APPVEYOR_REPO_PROVIDER}" 
+     
 
      
 
